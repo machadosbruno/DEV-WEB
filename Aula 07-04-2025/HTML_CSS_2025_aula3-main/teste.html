@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=keyboard_arrow_down" />
+    <style>
+        body, html{
+            margin: 0;
+            padding: 0;
+        }
+
+        #superior{
+            text-align: center;
+            width: fit-content;
+            margin: auto;
+            display: block;
+        }
+        #superior>span{
+            font-size: smaller;
+        }
+        #botoes{
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 0.7vw;
+        }
+
+        #principal{
+            display: inline;
+            width: 50vw;
+            position: fixed;
+            margin: 25% 0;
+            padding: 0 2vw;
+            top: 100px;
+            left: 50%;
+        }
+        #capi {
+            display: inline;
+            position: fixed;
+            top: 100px;
+            left: 0;
+            width: 50vw;
+        }
+
+        body>div>img{
+            display: inline-block;
+            width: 50vw;
+            height: 100vh; 
+        }
+        span.menu{
+            font-family: Arial, sans-serif;
+            text-transform: capitalize;
+        }
+        .linkEstilo1{
+            background-color: #4d40d7;
+            border: 3px solid #4d40d7;
+            padding: 3px;
+            color: white;
+            border-radius: 10px;
+        }
+        #linkEstilo2{
+            border: 3px solid #4d40d7;
+            border-radius: 10px;
+            padding: 3px;
+            color: #4d40d7;
+        }
+        #chamada{
+            font-size: 32px;
+        }
+        #moto{
+            color: gray;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="superior">
+        <span class="menu"> <span class="material-symbols-outlined">
+            keyboard_arrow_down
+            </span> plataforma</span> 
+        <span  class="menu"> <span class="material-symbols-outlined">
+            keyboard_arrow_down
+            </span> soluções</span> 
+        <span class="menu"> <span class="material-symbols-outlined">
+            keyboard_arrow_down
+            </span> companhia</span> 
+        <span class="menu"> <span class="material-symbols-outlined">
+            keyboard_arrow_down
+            </span> comunidade</span>
+    </div>
+    <div id="botoes">
+        <a href="#" class="linkEstilo1">Exemplo</a>
+        <a href="#" id="linkEstilo2">Entrar</a>
+    </div>
+    <div id="principal">
+        <p id="chamada">
+            Vamos comversar sobre <br>
+            as características <br>
+            da plataforma       
+        </p>
+        <p id="moto">  
+            Capivara TXM conecta cada interação através de cada uma das quatro <br>
+            experiências chave através do ciclo de vida do talento.
+        </p>
+        <a href="#" class="linkEstilo1">Peça uma amostra</a>
+    </div>
+    <div id="capi">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Capivara-.jpg" alt="Capivara">
+    </div>
+</body>
+</html>
