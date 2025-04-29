@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = idade;
+        
+        function idade() {
+            let elemento = document.getElementById('idade');
+            let atual = 19;
+            let resultado = atual + 7;
+            elemento.innerHTML = `Minha idade daqui a 7 anos será ` + resultado;
+        }
+    </script>
+</head>
+<body>
+    <p id="idade"></p>
+</body>
+</html>
