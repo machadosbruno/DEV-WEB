@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <script>
+	window.onload = inicio;
+
+	function inicio() {
+	    let botao = document.getElementById('botao');
+        botao.addEventListener('click', soma);
+
+	    let botaoSub = document.getElementById('botaoSub');
+        botaoSub.addEventListener('click', sub);
+        
+	    let botaoMult = document.getElementById('botaoMult');
+        botaoMult.addEventListener('click', mult);
+
+	    let botaoDiv = document.getElementById('botaoDiv');
+        botaoDiv.addEventListener('click', div);
+
+        let botaoExp = document.getElementById('botaoExp');
+        botaoExp.addEventListener('click', exp);
+
+	    let botaoResto = document.getElementById('botaoResto');
+        botaoResto.addEventListener('click', resto);
+        
+	    let botaoInc = document.getElementById('botaoInc');
+        botaoInc.addEventListener('click', inc);
+
+	    let botaoDec = document.getElementById('botaoDec');
+        botaoDec.addEventListener('click', dec);
+    }
+
+    function soma() {
+        let saida = document.getElementById('saida');
+        let x = 7;
+        let y = 3;
+        saida.innerHTML = x + y;
+    }
+
+    function sub() {
+        let saida = document.getElementById('saida');
+        let x = 7;
+        let y = 3;
+        saida.innerHTML = x - y;
+    }
+    
+    function mult() {
+        let saida = document.getElementById('saida');
+        let x = 7;
+        let y = 3;
+        saida.innerHTML = x * y;
+    }
+
+    function div() {
+        let saida = document.getElementById('saida');
+        let x = 7;
+        let y = 3;
+        saida.innerHTML = x / y;
+    }
+    
+    function exp() {
+        let saida = document.getElementById('saida');
+        let x = 7;
+        let y = 3;
+        saida.innerHTML = x**y;
+    }
+
+    function resto() {
+        let saida = document.getElementById('saida');
+        let x = 7;
+        let y = 3;
+        saida.innerHTML = x % y;
+    }
+    
+    function inc() {
+        let saida = document.getElementById('saida');
+        let x = 7;
+        let y = 3;
+        saida.innerHTML = ++x + ` ` + ++y;
+    }
+
+    function dec() {
+        let saida = document.getElementById('saida');
+        let x = 7;
+        let y = 3;
+        saida.innerHTML = --x + ` ` + --y;
+    }
+    </script>
+</head>
+<body>
+    <p id="saida">JS esperando evento</p>
+    <input type="button" value="+" id="botao">
+    <input type="button" value="-" id="botaoSub">
+    <br>
+    <input type="button" value="*" id="botaoMult">
+    <input type="button" value="/" id="botaoDiv">
+    <br>
+    <input type="button" value="**" id="botaoExp">
+    <input type="button" value="%" id="botaoResto">
+    <br>
+    <input type="button" value="++" id="botaoInc">
+    <input type="button" value="--" id="botaoDec">
+</body>
+</html>
