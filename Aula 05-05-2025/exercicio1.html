@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script>
+	window.onload = inicio;
+
+    var btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8 , btn9, btn0;
+    var visor;
+
+	function inicio() {
+	    visor = document.getElementById('visor');
+	    visor.textContent = "0";
+
+	    btn7 = document.getElementById('botao7');
+	    btn7.addEventListener('click', fsete);
+	}
+
+	function fsete() {
+        if(visor.textContent == "0")
+            visor.textContent = "";
+        if( visor != 0 ) {
+		    visor = (visor * 10) + 7;
+	    } else {
+		    visor = 7;
+	    }
+        visor.textContent = visor.textContent + btn7.value;
+	}
+
+    </script>
+</head>
+<body>
+    <p id="visor"></p>
+    <div id="botoes">
+        <input type="button" value="1" id="botao1">
+        <input type="button" value="2" id="botao2">
+        <input type="button" value="3" id="botao3"><br>
+        <input type="button" value="4" id="botao4">
+        <input type="button" value="5" id="botao5">
+        <input type="button" value="6" id="botao6"><br>
+	    <input type="button" value="7" id="botao7">
+        <input type="button" value="8" id="botao8">
+	    <input type="button" value="9" id="botao9"><br>
+        <input type="button" value="0" id="botao0">
+    </div>
+</body>
+</html>
