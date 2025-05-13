@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script>
+	window.onload = inicio;
+
+    let btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
+    let btnSoma, btnSub, btnMult, btnIgual;
+    let visor, op1, operador;
+
+	function inicio() {
+	    visor = document.getElementById('visor');
+	    visor.textContent = 0;
+
+        btnSoma = document.getElementById('botaoSoma');
+        btnSoma.addEventListener('click', soma);
+
+        btnSub = document.getElementById('botaoSub');
+        btnSub.addEventListener('click', sub);
+
+        btnMult = document.getElementById('botaoMult');
+        btnMult.addEventListener('click', mult);
+
+        btnIgual = document.getElementById('botaoIgual');
+        btnIgual.addEventListener('click', igual);
+
+	    btn0 = document.getElementById('botao0');
+	    btn0.addEventListener('click', f0);
+        
+	    btn1 = document.getElementById('botao1');
+	    btn1.addEventListener('click', f1);
+
+        btn2 = document.getElementById('botao2');
+        btn2.addEventListener('click', f2);
+        
+        btn3 = document.getElementById('botao3');
+        btn3.addEventListener('click', f3);
+        
+        btn4 = document.getElementById('botao4');
+        btn4.addEventListener('click', f4);
+        
+        btn5 = document.getElementById('botao5');
+        btn5.addEventListener('click', f5);
+        
+        btn6 = document.getElementById('botao6');
+        btn6.addEventListener('click', f6);
+        
+        btn7 = document.getElementById('botao7');
+        btn7.addEventListener('click', f7);
+        
+        btn8 = document.getElementById('botao8');
+        btn8.addEventListener('click', f8);
+        
+        btn9 = document.getElementById('botao9');
+        btn9.addEventListener('click', f9);
+	}
+
+    function igual(){
+        op = visor.textContent;
+        if(operador == '+'){
+            visor.textContent = op1 + parseInt(visor.textContent);
+        }
+        if(operador == '-'){
+            visor.textContent = op1 - parseInt(visor.textContent);
+        }
+        if(operador == '*'){
+            visor.textContent = op1 * parseInt(visor.textContent);
+        }
+    }
+
+	function f0() {
+        visor.textContent = 0;
+	}
+
+    function f1() {
+        if(visor.textContent == "0")
+            visor.textContent = "";
+        visor.textContent = (visor.textContent * 10) + 1;
+	}
+
+    function f2() {
+            if(visor.textContent == "0")
+                visor.textContent = "";
+            visor.textContent = (visor.textContent * 10) + 2;
+        }
+        
+    function f3() {
+        if(visor.textContent == "0")
+            visor.textContent = "";
+        visor.textContent = (visor.textContent * 10) + 3;
+    }
+
+    function f4() {
+        if(visor.textContent == "0")
+            visor.textContent = "";
+        visor.textContent = (visor.textContent * 10) + 4;
+    }
+
+    function f5() {
+        if(visor.textContent == "0")
+            visor.textContent = "";
+        visor.textContent = (visor.textContent * 10) + 5;
+    }
+
+    function f6() {
+        if(visor.textContent == "0")
+            visor.textContent = "";
+        visor.textContent = (visor.textContent * 10) + 6;
+    }
+    
+	function f7() {
+        if(visor.textContent == "0"){
+            visor.textContent = "";
+        }
+        visor.textContent = (visor.textContent * 10) + 7;
+	}
+
+    function f8() {
+        if(visor.textContent == "0")
+            visor.textContent = "";
+        visor.textContent = (visor.textContent * 10) + 8;
+    }
+    
+	function f9() {
+        if(visor.textContent == "0"){
+            visor.textContent = "";
+        }
+        visor.textContent = (visor.textContent * 10) + 9;
+	}
+    
+
+    function soma(){
+        op1 = parseInt(visor.textContent);
+        operador = "+";
+        visor.textContent = 0;
+    }
+    
+    function sub(){
+        op1 = parseInt(visor.textContent);
+        operador = "-";
+        visor.textContent = 0;
+    }
+    
+    function mult(){
+        op1 = parseInt(visor.textContent);
+        operador = "*";
+        visor.textContent = 0;
+    }
+    </script>
+</head>
+<body>
+    <p id="visor"></p>
+    <div id="botoes">
+        <input type="button" value="1" id="botao1">
+        <input type="button" value="2" id="botao2">
+        <input type="button" value="3" id="botao3"><br>
+        <input type="button" value="4" id="botao4">
+        <input type="button" value="5" id="botao5">
+        <input type="button" value="6" id="botao6"><br>
+	    <input type="button" value="7" id="botao7">
+        <input type="button" value="8" id="botao8">
+	    <input type="button" value="9" id="botao9"><br>
+        <input type="button" value="0" id="botao0">
+        <br>
+        <input type="button" value="+" id="botaoSoma">
+        <input type="button" value="-" id="botaoSub">
+        <input type="button" value="*" id="botaoMult">
+        <input type="button" value="=" id="botaoIgual">
+    </div>
+</body>
+</html>
