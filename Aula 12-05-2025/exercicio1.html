@@ -35,20 +35,6 @@
         document.getElementById('botao9').addEventListener('click', f9);
 	}
 
-    function igual(){
-        op = visor.textContent;
-        if(operador == '+'){
-            visor.textContent = op1 + parseInt(visor.textContent);
-        }
-        if(operador == '-'){
-            visor.textContent = op1 - parseInt(visor.textContent);
-        }
-        if(operador == '*'){
-            visor.textContent = op1 * parseInt(visor.textContent);
-        }
-        operador = "=";
-    }
-
 	function f0() {
         atual = (atual * 10) + 0;
         visor.textContent = atual;
@@ -126,7 +112,24 @@
         visor.textContent = atual;
 	}
 
+    function igual(){
+        op = visor.textContent;
+        if(operador == '+'){
+            visor.textContent = op1 + parseInt(visor.textContent);
+        }
+        if(operador == '-'){
+            visor.textContent = op1 - parseInt(visor.textContent);
+        }
+        if(operador == '*'){
+            visor.textContent = op1 * parseInt(visor.textContent);
+        }
+        operador = "=";
+    }
+
     function soma(){
+        if((op1 != "" && op1 != 0) && (operador != "" && operador != "=")){
+            op1
+        }
         op1 = atual;
         atual = 0;
         operador = "+";
