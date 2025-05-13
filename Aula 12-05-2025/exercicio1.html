@@ -7,55 +7,32 @@
     <script>
 	window.onload = inicio;
 
-    let btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
     let btnSoma, btnSub, btnMult, btnIgual;
-    let visor, op1, operador;
+    let atual, op1, operador = "", fim;
 
 	function inicio() {
 	    visor = document.getElementById('visor');
-	    visor.textContent = 0;
+	    atual = 0;
+        visor.textContent = atual;
 
-        btnSoma = document.getElementById('botaoSoma');
-        btnSoma.addEventListener('click', soma);
+        document.getElementById('botaoSoma').addEventListener('click', soma);
 
-        btnSub = document.getElementById('botaoSub');
-        btnSub.addEventListener('click', sub);
+        document.getElementById('botaoSub').addEventListener('click', sub);
 
-        btnMult = document.getElementById('botaoMult');
-        btnMult.addEventListener('click', mult);
+        document.getElementById('botaoMult').addEventListener('click', mult);
 
-        btnIgual = document.getElementById('botaoIgual');
-        btnIgual.addEventListener('click', igual);
+        document.getElementById('botaoIgual').addEventListener('click', igual);
 
-	    btn0 = document.getElementById('botao0');
-	    btn0.addEventListener('click', f0);
-        
-	    btn1 = document.getElementById('botao1');
-	    btn1.addEventListener('click', f1);
-
-        btn2 = document.getElementById('botao2');
-        btn2.addEventListener('click', f2);
-        
-        btn3 = document.getElementById('botao3');
-        btn3.addEventListener('click', f3);
-        
-        btn4 = document.getElementById('botao4');
-        btn4.addEventListener('click', f4);
-        
-        btn5 = document.getElementById('botao5');
-        btn5.addEventListener('click', f5);
-        
-        btn6 = document.getElementById('botao6');
-        btn6.addEventListener('click', f6);
-        
-        btn7 = document.getElementById('botao7');
-        btn7.addEventListener('click', f7);
-        
-        btn8 = document.getElementById('botao8');
-        btn8.addEventListener('click', f8);
-        
-        btn9 = document.getElementById('botao9');
-        btn9.addEventListener('click', f9);
+	    document.getElementById('botao0').addEventListener('click', f0);
+        document.getElementById('botao1').addEventListener('click', f1);
+        document.getElementById('botao2').addEventListener('click', f2);
+        document.getElementById('botao3').addEventListener('click', f3);
+        document.getElementById('botao4').addEventListener('click', f4);
+        document.getElementById('botao5').addEventListener('click', f5);
+        document.getElementById('botao6').addEventListener('click', f6);
+        document.getElementById('botao7').addEventListener('click', f7);
+        document.getElementById('botao8').addEventListener('click', f8);
+        document.getElementById('botao9').addEventListener('click', f9);
 	}
 
     function igual(){
@@ -69,100 +46,120 @@
         if(operador == '*'){
             visor.textContent = op1 * parseInt(visor.textContent);
         }
+        operador = "=";
     }
 
 	function f0() {
-        visor.textContent = 0;
+        atual = (atual * 10) + 0;
+        visor.textContent = atual;
 	}
 
     function f1() {
-        if(visor.textContent == "0")
-            visor.textContent = "";
-        visor.textContent = (visor.textContent * 10) + 1;
-	}
+        if(operador == "="){
+            atual = 0;
+        }
+        atual = (atual * 10) + 1;
+        visor.textContent = atual;
+    }
 
     function f2() {
-            if(visor.textContent == "0")
-                visor.textContent = "";
-            visor.textContent = (visor.textContent * 10) + 2;
+        if(operador == "="){
+            atual = 0;
         }
+        atual = (atual * 10) + 2;
+        visor.textContent = atual;
+    }
         
     function f3() {
-        if(visor.textContent == "0")
-            visor.textContent = "";
-        visor.textContent = (visor.textContent * 10) + 3;
+        if(operador == "="){
+            atual = 0;
+        }
+        atual = (atual * 10) + 3;
+        visor.textContent = atual;
     }
 
     function f4() {
-        if(visor.textContent == "0")
-            visor.textContent = "";
-        visor.textContent = (visor.textContent * 10) + 4;
+        if(operador == "="){
+            atual = 0;
+        }
+        atual = (atual * 10) + 4;
+        visor.textContent = atual;
     }
 
     function f5() {
-        if(visor.textContent == "0")
-            visor.textContent = "";
-        visor.textContent = (visor.textContent * 10) + 5;
+        if(operador == "="){
+            atual = 0;
+        }
+        atual = (atual * 10) + 5;
+        visor.textContent = atual;
     }
 
     function f6() {
-        if(visor.textContent == "0")
-            visor.textContent = "";
-        visor.textContent = (visor.textContent * 10) + 6;
+        if(operador == "="){
+            atual = 0;
+        }
+        atual = (atual * 10) + 6;
+        visor.textContent = atual;
     }
     
 	function f7() {
-        if(visor.textContent == "0"){
-            visor.textContent = "";
+        if(operador == "="){
+            atual = 0;
         }
-        visor.textContent = (visor.textContent * 10) + 7;
+        atual = (atual * 10) + 7;
+        visor.textContent = atual;
 	}
 
     function f8() {
-        if(visor.textContent == "0")
-            visor.textContent = "";
-        visor.textContent = (visor.textContent * 10) + 8;
+        if(operador == "="){
+            atual = 0;
+        }
+        atual = (atual * 10) + 8;
+        visor.textContent = atual;
     }
     
 	function f9() {
-        if(visor.textContent == "0"){
-            visor.textContent = "";
+        if(operador == "="){
+            atual = 0;
         }
-        visor.textContent = (visor.textContent * 10) + 9;
+        atual = (atual * 10) + 9;
+        visor.textContent = atual;
 	}
-    
 
     function soma(){
-        op1 = parseInt(visor.textContent);
+        op1 = atual;
+        atual = 0;
         operador = "+";
-        visor.textContent = 0;
+        visor.textContent = atual;
     }
     
     function sub(){
-        op1 = parseInt(visor.textContent);
+        op1 = atual;
+        atual = 0;
         operador = "-";
-        visor.textContent = 0;
+        visor.textContent = atual;
     }
     
     function mult(){
-        op1 = parseInt(visor.textContent);
+        op1 = atual;
+        atual = 0;
         operador = "*";
-        visor.textContent = 0;
+        visor.textContent = atual;
     }
     </script>
 </head>
 <body>
     <p id="visor"></p>
     <div id="botoes">
-        <input type="button" value="1" id="botao1">
-        <input type="button" value="2" id="botao2">
-        <input type="button" value="3" id="botao3"><br>
-        <input type="button" value="4" id="botao4">
-        <input type="button" value="5" id="botao5">
-        <input type="button" value="6" id="botao6"><br>
 	    <input type="button" value="7" id="botao7">
         <input type="button" value="8" id="botao8">
 	    <input type="button" value="9" id="botao9"><br>
+        <input type="button" value="4" id="botao4">
+        <input type="button" value="5" id="botao5">
+        <input type="button" value="6" id="botao6"><br>
+        <input type="button" value="1" id="botao1">
+        <input type="button" value="2" id="botao2">
+        <input type="button" value="3" id="botao3"><br>
         <input type="button" value="0" id="botao0">
         <br>
         <input type="button" value="+" id="botaoSoma">
