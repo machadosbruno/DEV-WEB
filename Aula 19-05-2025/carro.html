@@ -7,26 +7,41 @@
 </head>
 <script>
     window.onload = inicio;
-
+    let nome, ano, cor, carro;
+    
     function inicio(){
+        nome = document.getElementById('nome');
+        ano = document.getElementById('ano');
+        cor = document.getElementById('cor');
         document.getElementById('criar').addEventListener('click', criar)
+        document.getElementById('acelerarC').addEventListener('click', fAcelerar)
+        document.getElementById('frearC').addEventListener('click', fFrear)
     }
 
     function criar(){
-        let carro = {
-            nome: "Fusca",
-            ano: 1978,
-            cor: "Preto",
+        carro = {
+            nome: nome.value,
+            ano: parseInt(ano.value),
+            cor: nome.value,
             velocidade: 0,
-            acelerar: function() {
-                velocidade += 5;
+            acelerar: function(){
+                this.velocidade +=3;
             },
-            frear: function() {
-                if( velocidade > 0 ) {
-                velocidade -= 5;
+            frear: function(){
+                if(this.velocidade >= 2){
+                    this.velocidade -= 2;
+                }
+                else if(this.velocidade < 2 && this.velocidade > 0){
+                    this.velocidade = 0;
                 }
             }
-        };
+        };   
+    }
+    function fAcelerar(){
+        carro.acelerar();
+    }
+    function fFrear(){
+        carro.frear();
     }
 </script>
 <body>
@@ -43,7 +58,9 @@
             <input type="text" id="cor"><label for="cor"></label>
         </div>
         <div>
-            <input type="button" value="Criar" id="criar">
+            <input type="button" value="Criar" id="criar"><br>
+            <input type="button" value="Acelerar" id="acelerarC"><br>
+            <input type="button" value="Frear" id="frearC">
         </div>
     </main>
 </body>
