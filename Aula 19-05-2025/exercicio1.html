@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo</title>
+    <script>
+        window.onload = inicio;
+        var entrada;
+        function inicio(){
+            entrada = document.getElementById('entrada');
+            document.getElementById('limpar').addEventListener('click', limpar);
+            document.getElementById('mostrar').addEventListener('click', mostrar);
+        }
+
+        function limpar(){
+            entrada.value = '';
+        }
+        function mostrar(){
+            document.getElementById('saida').innerHTML = entrada.value;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="entrada"><br>
+    <input type="button" value="Limpar" id="limpar">
+    <input type="button" value="Mostrar" id="mostrar"><br>
+    <p id="saida"></p>
+</body>
+</html>
