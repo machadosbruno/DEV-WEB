@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeção de salário</title>
+</head>
+<style>
+    main{
+			max-width: 500px;
+			margin: auto;
+			
+			padding: 10%;
+
+			box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-size: 1.1em;
+		}
+		#entradas>div{
+			display: flex;
+			flex-direction: row-reverse;
+
+			padding: 4px 0px;
+		}
+		#entradas>div>input{
+			width: 85%;
+
+			border: .5px solid rgba(177, 177, 177, 0.5);
+			border-radius: 0;	
+		}
+		#entradas>div>label{
+			width: 15%;	
+		}
+		#saida{
+			width: 100%;
+            padding: 10px;
+
+			box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+            background-color: rgba(210, 210, 210, 0.2);
+
+            border-radius: 0;
+		}
+</style>
+<script>
+    window.onload = inicio;
+    let txtNome, txtSalario, txtVendas;
+    function inicio() {
+        txtNome = document.getElementById('nome');
+        txtNome.addEventListener('input', mostrar);
+        txtSalario = document.getElementById('salario');
+        txtSalario.addEventListener('input', mostrar);
+        txtVendas = document.getElementById('vendas');
+        txtVendas.addEventListener('input', mostrar);
+    }
+
+    function mostrar() {
+        if( (txtNome.value != "") && (txtSalario.value != "") && (txtVendas.value != "") ){
+            let pSaida = document.getElementById('saida');
+            pSaida.innerHTML = "";
+            let salario = parseFloat(txtSalario.value);
+            let vendas = parseFloat(txtVendas.value);
+
+            pSaida.innerHTML = `Nome: ${txtNome.value}<br>`;
+            pSaida.innerHTML += `Salário: ${txtSalario.value}<br>`;
+            pSaida.innerHTML += `Vendas: ${txtVendas.value}<br><br>`;
+            for(let i = 1; i <= 5; i++){
+                pSaida.innerHTML += `Total ${i} dias: ${salario + (vendas * (0.5/10)) * i}<br>`;
+            }
+        }
+    }
+</script>
+<body>
+    <main>
+        <h1>Projeção de salário</h1>
+        <p>
+            Digite seu nome, salário e vendas do dia, para ver o salário da semana se você continuar vendendo do mesmo jeito por 5 dias, considerando 5% de comissão sobre as vendas.
+        </p>
+        <div id="entradas">
+            <div>
+                <input type="text" name="nome" id="nome"><label for="nome">Nome: </label>
+            </div>
+            <div>
+                <input type="text" name="salario" id="salario"><label for="salario">Salário: </label>
+            </div>
+            <div>
+                <input type="text" name="vendas" id="vendas"><label for="vendas">Vendas: </label>
+            </div>
+        </div>
+        <div>
+            <p id="saida">
+                Nome:<br>
+                Salário:<br>
+                Vendas do dia:<br><br>
+
+                Total 1 dias:<br>
+                Total 2 dias:<br>
+                Total 3 dias:<br>
+                Total 4 dias:<br>
+                Total 5 dias:<br>
+            </p>
+        </div>
+    </main>
+</body>
+</html>
