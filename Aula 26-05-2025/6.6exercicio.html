@@ -58,14 +58,14 @@
         if( (txtNome.value != "") && (txtSalario.value != "") && (txtVendas.value != "") ){
             let pSaida = document.getElementById('saida');
             pSaida.innerHTML = "";
-            let salario = parseFloat(txtSalario.value);
+            let salario = parseFloat(txtSalario.value.replace(',', '.'));
             let vendas = parseFloat(txtVendas.value);
 
             pSaida.innerHTML = `Nome: ${txtNome.value}<br>`;
-            pSaida.innerHTML += `Salário: ${txtSalario.value}<br>`;
-            pSaida.innerHTML += `Vendas: ${txtVendas.value}<br><br>`;
+            pSaida.innerHTML += `Salário: ${parseFloat(txtSalario.value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}<br>`;
+            pSaida.innerHTML += `Vendas: ${parseFloat(txtVendas.value).toLocaleString('pt-br', {style: "currency", currency: "BRL"})}<br><br>`;
             for(let i = 1; i <= 5; i++){
-                pSaida.innerHTML += `Total ${i} dias: ${salario + (vendas * (0.5/10)) * i}<br>`;
+                pSaida.innerHTML += `Total ${i} dias: ${(salario + (vendas * (0.5/10)) * i).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}<br>`;
             }
         }
     }
@@ -89,15 +89,15 @@
         </div>
         <div>
             <p id="saida">
-                Nome:<br>
-                Salário:<br>
-                Vendas do dia:<br><br>
+                Nome: Fulano<br>
+                Salário: R$ 0000,00<br>
+                Vendas do dia: R$ 0000,00<br><br>
 
-                Total 1 dias:<br>
-                Total 2 dias:<br>
-                Total 3 dias:<br>
-                Total 4 dias:<br>
-                Total 5 dias:<br>
+                Total 1 dias: R$ 0000,00<br>
+                Total 2 dias: R$ 0000,00<br>
+                Total 3 dias: R$ 0000,00<br>
+                Total 4 dias: R$ 0000,00<br>
+                Total 5 dias: R$ 0000,00<br>
             </p>
         </div>
     </main>

@@ -56,9 +56,14 @@
 		let nota = txtNota.value;
 	    // obter saida:
 	    let txtSaida = document.getElementById('saida');
-
+		nota = nota.replace(',','.');
 	    // alterar saida:
-		txtSaida.value = parseFloat(nota) >= 6 ? `${nome}, Aprovado` : `${nome}, Reprovado`
+		if(parseFloat(nota) == NaN){
+			txtSaida.value = `Digite uma not válida, exemplo: 6.5`;
+		}
+		else{
+			txtSaida.value = parseFloat(nota) >= 6 ? `${nome}, Aprovado` : `${nome}, Reprovado`
+		}
 	}
     </script>
 </head>
