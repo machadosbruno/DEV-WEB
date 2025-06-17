@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = inicio;
+
+    function inicio(){
+        let nome = document.getElementById('nome');
+        let email = document.getElementById('email');
+
+        document.getElementById('inserir').addEventListener('click', salvar);
+        document.getElementById('mostra').addEventListener('click', mostrar);
+        document.getElementById('apagar').addEventListener('click', apagar);
+    }
+
+    function salvar(){
+        localStorage.setItem('nome', nome.value);
+        localStorage.setItem('email', email.value);
+    }
+
+    function mostrar(){
+        let saida = document.getElementById('saida');
+        let nome = document.createElement('p');
+        nome.id = 'saidaNome';
+        nome.textContent = "Nome: " + localStorage.getItem('nome');
+
+        let email = document.createElement('p');
+        email.id = 'saidaEmail';
+        email.textContent = "Email: " +localStorage.getItem('email');
+
+        saida.appendChild(nome);
+        saida.appendChild(email);
+    }
+
+    function apagar(){
+        localStorage.removeItem('nome');
+        localStorage.removeItem('email');
+    }
+</script>
+<body>
+    <input type="text" id="nome"><br>
+    <input type="text" id="email"><br>
+    <input type="button" value="Salvar" id="inserir"><br>
+    <input type="button" value="Mostrar" id="mostra"><br>
+    <input type="button" id="apagar" value="Apagar">
+    <div id="saida"></div>
+</body>
+</html>

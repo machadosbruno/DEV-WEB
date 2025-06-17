@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = inicio;
+    
+    let valorUSD;
+
+    function inicio(){
+        let usd = document.getElementById('usd');
+
+        document.getElementById('usd').addEventListener('click', calcula);
+    }
+
+    function data(){
+        let inputData = document.getElementById('data');
+        let data = "";
+        data += inputData.value.split('-')[1] + "-";
+
+        data += inputData.value.split('-')[2] + "-";
+        
+        data += inputData.value.split('-')[0];
+
+        console.log(data);
+        return data;
+    }
+
+    function calcula(){
+        let objetoX = new XMLHttpRequest();
+
+        objetoX.open('GET', `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='${data()}'&$top=100&$format=json`, true);
+
+        objetoX.onload = function() {
+            if(objetoX.status == 200) {
+                let resposta = JSON.parse(objetoX.responseText);
+                valorUSD = parseFloat(resposta.value[0].cotacaoCompra);
+                
+                let campoSaida = document.getElementById('saida');
+                campoSaida.innerHTML = "Dólar hoje: R$ " + valorUSD;
+            }
+        };
+
+        objetoX.send();
+    }
+
+    function converte(){
+        let reais = document.getElementById('reais');
+        
+        calcula();
+
+        let convertido = document.getElementById('convertido');
+        convertido.innerHTML = reais.value * valorUSD;
+    }
+</script>
+<body>
+    <label for="data">Data: </label>
+    <input type="date" id="data" value="2025-06-16">
+    <input type="button" value="USD" id="usd"><br>
+    <p id="saida"></p>
+    <p id="convertido"></p>
+</body>
+</html>
