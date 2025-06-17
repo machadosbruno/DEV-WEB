@@ -11,13 +11,6 @@
     let valorUSD;
 
     function inicio(){
-        let usd = document.getElementById('usd');
-
-        document.getElementById('usd').addEventListener('click', calcula);
-
-        let converter = document.getElementById('converter');
-        converter.addEventListener('click', converte);
-
         setInterval(5000, calcula);
     }
 
@@ -55,15 +48,6 @@
         };
 
         objetoX.send();
-    }
-
-    function converte(){
-        let reais = document.getElementById('reais');
-        
-        calcula();
-
-        let convertido = document.getElementById('convertido');
-        convertido.innerHTML = reais.value * valorUSD;
     }
 </script>
 <body>
