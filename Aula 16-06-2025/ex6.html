@@ -8,7 +8,7 @@
 <script>
     window.onload = inicio;
     
-    let valorUSD;
+    let valorUSD, cont = 0;
 
     function inicio(){
         let intervalo = setInterval(calcula, 5000);
@@ -43,7 +43,8 @@
                 valorUSD = parseFloat(resposta.value[0].cotacaoCompra);
                 
                 let campoSaida = document.getElementById('saida');
-                campoSaida.innerHTML = "Dólar hoje: R$ " + valorUSD;
+                campoSaida.innerHTML = "Dólar hoje: R$ " + valorUSD + " " + cont;
+cont++
             }
         };
 
