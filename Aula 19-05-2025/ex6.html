@@ -18,7 +18,6 @@
         let converter = document.getElementById('converter');
         converter.addEventListener('click', converte);
 
-        calcula();
     }
 
     function data(){
@@ -63,7 +62,7 @@
         calcula();
 
         let convertido = document.getElementById('convertido');
-        convertido.innerHTML = reais.value * valorUSD;
+        convertido.innerHTML = reais.value / valorUSD;
     }
 </script>
 <body>
