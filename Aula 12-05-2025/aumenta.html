@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parágrafos</title>
+    <script>
+	window.onload = inicio;
+    var paras;
+	function inicio() {
+	    paras = document.getElementsByTagName('p');
+	    paras[0].addEventListener('mouseover', aumenta);
+	    paras[1].addEventListener('mouseover', aumenta);
+	    paras[2].addEventListener('mouseover', aumenta);
+	    paras[3].addEventListener('mouseover', aumenta);
+	    paras[4].addEventListener('mouseover', aumenta);
+	}
+
+	function aumenta() {
+        let valorAtual = parseInt(window.getComputedStyle(this).fontSize);
+        valorAtual +=2;
+        this.style.fontSize = valorAtual + "px";
+    }  
+    </script>
+</head>
+<body>
+    <p>A história da biologia traça o estudo do meio vivo desde a Antiguidade até aos tempos modernos.</p>
+    <p>Embora o conceito de biologia enquanto campo científico único e coeso só tenha surgido no século XIX, as ciências biológicas têm origem nas práticas ancestrais de medicina e de história natural que remontam à Ayurveda, à medicina do Antigo Egito e às obras de Aristóteles e Galeno durante a Antiguidade clássica.</p> 
+    <p>Esta tradição pioneira continuou a ser aperfeiçoada durante a Idade Média por médicos e acadêmicos como Avicena.</p> 
+    <p>Durante o Renascimento e no início da Idade Moderna, o raciocínio científico na Europa foi drasticamente alterado com a introdução do empirismo e com a descoberta de inúmeras formas de vida.</p> 
+    <p>Entre as figuras de relevo deste movimento destacam-se Andreas Vesalius e William Harvey, introdutores do experimentalismo e da observação científica na fisiologia, e naturalistas como Carolus Linnaeus e Buffon, pioneiros da classificação das espécies e dos registos fósseis, para além de obras no comportamento e desenvolvimento dos seres vivos.</p>
+</body>
+</html>

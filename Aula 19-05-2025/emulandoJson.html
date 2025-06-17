@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<style>
+    
+</style>
+<script>
+    window.onload = inicio;
+
+    function inicio(){
+        ent = document.getElementById('entrada');
+        document.getElementById('converter').addEventListener('click', transformar);
+    }
+
+    function transformar(){
+        objeto = JSON.parse(ent.value);
+        document.getElementById('saida').textContent =
+        `    Objeto = {
+            Nome: ` + objeto.nome + `,
+            Idade: ` + objeto.idade + `
+    }`;
+    }
+</script>
+<body>
+    <h1>Transformando JSON em Objeto</h1>
+    <p>Digite o JSON para ver as propriedades do objeto extraído.</p>
+    <div>
+        <input type="text" id="entrada"><label for="entrada">JSON: </label>
+    </div>
+    <div>
+        <input type="button" value="Converter" id="converter">
+    </div>
+    <div>
+        <pre id="saida"></pre>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <style>
+        body{
+            width: 50vw;
+            height: 55vw;
+
+            margin: 25vh 25vw;
+        }
+        .dark {
+            color: white;
+            background-color:  black;
+        }
+        table{
+            width: 50vw;
+            height: 50vw;
+
+            border: 1px solid black;
+        }
+        td{
+            text-align: center;
+            box-shadow: 1px 1px rgb(177, 177, 177);
+        }
+        #btnGera{
+            width: 50vw;
+
+            margin-top: 20px;
+
+            border: 1px solid rgb(177, 177, 177);
+        }
+        #lblNumero{
+            width: 7vw;
+        }
+        #numero{
+            width: 33vw;
+            margin-top: 10px;
+        }
+        #btnMarca{
+            width: 10vw;
+        }
+    </style>
+    <script>
+	window.onload = inicio;
+    
+	function inicio() {
+	    let botao = document.getElementById('btnGera');
+	    botao.addEventListener('click', gera);
+        document.getElementById('btnMarca').addEventListener('click', marca);
+	}
+	function gera() {
+	    let tabela = document.getElementsByTagName('table')[0];
+	    let elementos = '';
+
+	    elementos += '<tr>';
+	    for(var i = 0; i < 31; i++) {
+		if( i % 7 == 0 ) {
+		    elementos += '</tr><tr>';
+		} 
+		elementos += '<td id='+i+'>' + (i+1) + '</td>';
+	    }
+	    elementos += '</tr>';
+	    tabela.innerHTML = elementos;
+	}
+    function marca(){
+        let valor = parseInt(document.getElementById('numero').value);
+        gera();
+        document.getElementById( (valor-1).toString() ).className = 'dark';
+    }
+    </script>
+</head>
+<body>
+    <table>
+
+    </table>
+    <input type="button" value="Gera" id="btnGera"><br>
+    <label for="numero" id="lblNumero">Dia:</label>
+    <input type="text" id="numero" value="0">
+    <input type="button" value="Marca" id="btnMarca">
+</body>
+</html>

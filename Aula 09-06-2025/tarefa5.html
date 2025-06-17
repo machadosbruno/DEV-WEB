@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <style>
+        #tabela{
+            border: 2px solid rgba(78, 78, 78, 0.5);
+            padding: 2px;
+        }
+        td{
+            box-shadow: 1px 1px rgba(178, 178, 178, 0.5);
+            margin: 2px;
+            padding: 2px;
+        }
+    </style>
+    <script>
+	window.onload = inicio;
+    let contadorTarefas = 1, contadorTabela = 1;
+	
+	function inicio() {
+	    let botao = document.getElementById('btnAdiciona');
+	    botao.addEventListener('click', adiciona);
+    }
+	function adiciona() {
+	    let campoNome = document.getElementById('nome');
+	    let nomeAtividade = campoNome.value;
+
+	    let atividades = document.getElementById('atividades');
+
+        let check = document.createElement('input');
+        check.type = 'checkbox';
+        check.id = `c${contadorTarefas}`;
+
+        let lbl = document.createElement('label');
+        lbl.htmlFor = `c${contadorTarefas}`;
+        lbl.textContent = `${nomeAtividade}`;
+        lbl.id = `lblc${contadorTarefas}`;
+
+        let quebra = document.createElement('br');
+
+        document.getElementById('atividades').appendChild(check);
+        document.getElementById('atividades').appendChild(lbl);
+        document.getElementById('atividades').appendChild(quebra);
+
+        contadorTarefas ++;
+
+        check.addEventListener('click', registrarHorario);
+    }
+    function registrarHorario(evento){
+        let agora = new Date();
+        
+        if(contadorTabela == 1){
+            let tabela = document.createElement('table');
+            tabela.id = 'tabela';
+            document.getElementById('horarios').appendChild(tabela);
+
+            let linha1 = document.createElement('tr');
+            linha1.id = `l${contadorTabela}`;
+            tabela.appendChild(linha1);
+
+            let nomeCol1 = document.createElement('td');
+            nomeCol1.id = 'nomeCol1';
+            nomeCol1.textContent = "Nome da tarefa"
+            linha1.appendChild(nomeCol1);
+
+            let nomeCol2 = document.createElement('td');
+            nomeCol2.id = 'nomeCol2';
+            nomeCol2.textContent = "Data de encerramento";
+            linha1.appendChild(nomeCol2);
+        }
+
+        if(evento.srcElement.checked == true){
+            let tabela = document.getElementById('tabela');
+            let linha = document.createElement('tr');
+            linha.id = `l${contadorTabela+1}`;
+            tabela.appendChild(linha);
+
+            let nomeTarefa = document.createElement('td');
+            nomeTarefa.id = `n${contadorTabela}`;
+            nomeTarefa.textContent = document.getElementById(`lbl${evento.srcElement.id}`).textContent;
+
+            linha.appendChild(nomeTarefa)
+
+            let horaEncerramento = document.createElement('td');
+            horaEncerramento.id = `h${contadorTabela}`;
+            horaEncerramento.textContent = `${agora.getDate()}/${agora.getMonth() + 1}/${agora.getFullYear()} ${agora.getHours()}:${agora.getMinutes()}:${agora.getSeconds()}`;
+
+            linha.appendChild(horaEncerramento);
+        }
+        contadorTabela++;
+    }
+    </script>
+</head>
+<body>
+    <label for="nome">Atividade:</label>
+    <input type="text" id="nome">
+    <input type="button" id="btnAdiciona" value="Adicionar"><br>
+
+    <div id="atividades"></div>
+    <div id="horarios"></div>
+</body>
+</html>

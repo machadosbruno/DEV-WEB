@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carro</title>
+</head>
+<script>
+    window.onload = inicio;
+    let nome, ano, cor, carro;
+    
+    function inicio(){
+        nome = document.getElementById('nome');
+        ano = document.getElementById('ano');
+        cor = document.getElementById('cor');
+        document.getElementById('criar').addEventListener('click', criar)
+        document.getElementById('acelerarC').addEventListener('click', fAcelerar)
+        document.getElementById('frearC').addEventListener('click', fFrear)
+    }
+
+    function criar(){
+        carro = {
+            nome: nome.value,
+            ano: parseInt(ano.value),
+            cor: nome.value,
+            velocidade: 0,
+            acelerar: function(){
+                this.velocidade +=3;
+            },
+            frear: function(){
+                if(this.velocidade >= 2){
+                    this.velocidade -= 2;
+                }
+                else if(this.velocidade < 2 && this.velocidade > 0){
+                    this.velocidade = 0;
+                }
+            }
+        };   
+    }
+    function fAcelerar(){
+        carro.acelerar();
+    }
+    function fFrear(){
+        carro.frear();
+    }
+</script>
+<body>
+    <main>
+        <h1>Carro</h1>
+        <p>Digite os dados sobre o carro:</p>
+        <div>
+            <input type="text" id="nome"><label for="nome"></label>
+        </div>
+        <div>
+            <input type="number" id="ano"><label for=""></label>
+        </div>
+        <div>
+            <input type="text" id="cor"><label for="cor"></label>
+        </div>
+        <div>
+            <input type="button" value="Criar" id="criar"><br>
+            <input type="button" value="Acelerar" id="acelerarC"><br>
+            <input type="button" value="Frear" id="frearC">
+        </div>
+    </main>
+</body>
+</html>

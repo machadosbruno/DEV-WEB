@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body{
+            width: 460px;
+            height: 680px;
+            border: 2px solid black;
+            border-radius: 20px;
+            margin: auto;
+            margin-top: 16vh;
+            padding: auto;
+        }
+        input{
+            width: 100px;
+            height: 100px;
+            margin-left: 10px;
+            margin-top: 10px;
+            font-size: 2em;
+            border-radius: 10px;
+        }
+        input#visor{
+            width: 434px;
+            font-size: 3em;
+        }
+        input#botaoIgual{
+            width: 440px;
+        }
+    </style>
+    <script>
+	window.onload = inicio;
+
+    let btnSoma, resultadoSoma = 0, btnSub, btnMult, btnIgual;
+    let atual, op1, operador = "", virgula = 0, naoRepetir = 0;
+
+	function inicio() {
+	    visor = document.getElementById('visor');
+	    atual = 0;
+        visor.value = atual;
+
+        document.getElementById('botaoSoma').addEventListener('click', soma);
+
+        document.getElementById('botaoSub').addEventListener('click', sub);
+
+        document.getElementById('botaoMult').addEventListener('click', mult);
+
+        document.getElementById('botaoIgual').addEventListener('click', igual);
+
+        document.getElementById("botaoDiv").addEventListener('click', div);
+
+        document.getElementById('botaoC').addEventListener('click', fC);
+
+        document.getElementById('virgula').addEventListener('click', fP);
+
+	    document.getElementById('botao0').addEventListener('click', f0);
+        document.getElementById('botao1').addEventListener('click', f1);
+        document.getElementById('botao2').addEventListener('click', f2);
+        document.getElementById('botao3').addEventListener('click', f3);
+        document.getElementById('botao4').addEventListener('click', f4);
+        document.getElementById('botao5').addEventListener('click', f5);
+        document.getElementById('botao6').addEventListener('click', f6);
+        document.getElementById('botao7').addEventListener('click', f7);
+        document.getElementById('botao8').addEventListener('click', f8);
+        document.getElementById('botao9').addEventListener('click', f9);
+	}
+
+	function f0() {
+        atual = (atual * 10) + 0;
+        visor.value = atual;
+	}
+
+    function f1() {
+        if(operador == "=" && virgula == 0){
+            atual = 0;
+        }
+        if(virgula == 1){
+            atual= atual + 0.1;
+        }
+        else{
+            atual = (atual * 10) + 1;
+        }
+        visor.value = atual;
+    }
+
+    function f2() {
+        if(operador == "=" && virgula == 0){
+            atual = 0;
+        }
+        if(virgula == 1){
+            atual= atual + 0.2;
+        }
+        else{
+            atual = (atual * 10) + 2;
+        }
+        visor.value = atual;
+    }
+        
+    function f3() {
+        if(operador == "=" && virgula == 0){
+            atual = 0;
+        }
+        if(virgula == 1){
+            atual= atual + 0.3;
+        }
+        else{
+            atual = (atual * 10) + 3;
+        }
+        visor.value = atual;
+    }
+
+    function f4() {
+        if(operador == "=" && virgula == 0){
+            atual = 0;
+        }
+        if(virgula == 1){
+            atual= atual + 0.4;
+        }
+        else{
+            atual = (atual * 10) + 4;
+        }
+        visor.value = atual;
+    }
+
+    function f5() {
+        if(operador == "=" && virgula == 0){
+            atual = 0;
+        }
+        if(virgula == 1){
+            atual= atual + 0.5;
+        }
+        else{
+            atual = (atual * 10) + 5;
+        }
+        visor.value = atual;
+    }
+
+    function f6() {
+        if(operador == "=" && virgula == 0){
+            atual = 0;
+        }
+        if(virgula == 1){
+            atual= atual + 0.6;
+        }
+        else{
+            atual = (atual * 10) + 6;
+        }
+        visor.value = atual;
+    }
+    
+	function f7() {
+        if(operador == "=" && virgula == 0){
+            atual = 0;
+        }
+        if(virgula == 1){
+            atual= atual + 0.7;
+        }
+        else{
+            atual = (atual * 10) + 7;
+        }
+        visor.value = atual;
+	}
+
+    function f8() {
+        if(operador == "=" && virgula == 0){
+            atual = 0;
+        }
+        if(virgula == 1){
+            atual= atual + 0.8;
+        }
+        else{
+            atual = (atual * 10) + 8;
+        }
+        visor.value = atual;
+    }
+    
+	function f9() {
+        if(operador == "=" && virgula == 0){
+            atual = 0;
+        }
+        if(virgula == 1){
+            atual= atual + 0.9;
+        }
+        else{
+            atual = (atual * 10) + 9;
+        }
+        visor.value = atual;
+	}
+
+    function fC(){
+        virgula = 0;
+        atual = 0;
+        resultadoSoma = 0;
+        operador = "";
+        visor.value = atual;
+    }
+
+    function fP(){
+        visor.value = atual + ".";
+        virgula = 1;
+    }
+
+    function igual(){
+        virgula = 0;
+        if(operador == '+'){
+            visor.value = resultadoSoma + parseFloat(visor.value);
+            resultadoSoma = 0;
+        }
+        if(operador == '-'){
+            visor.value = resultadoSoma - parseFloat(visor.value);
+            resultadoSoma = 0;
+        }
+        if(operador == '*'){
+            if(naoRepetir == 1){
+                visor.value = resultadoSoma;
+                naoRepetir = 0;
+            }
+            else{
+                visor.value = resultadoSoma * parseFloat(visor.value);
+            }
+        }
+        if(operador == '/'){
+            if(naoRepetir == 1){
+                visor.value = resultadoSoma;
+                naoRepetir = 0;
+            }
+            else{
+                visor.value = resultadoSoma / parseFloat(visor.value);
+            }
+        }
+        operador = "=";
+    }
+
+    function soma(){
+        virgula = 0;
+        atual = parseFloat(visor.value);
+        resultadoSoma += atual;
+        atual = 0;
+        operador = "+";
+        visor.value = atual;
+    }
+    
+    function sub(){
+        atual = parseFloat(visor.value);
+        resultadoSoma += atual;
+        atual = 0;
+        operador = "-";
+        visor.value = atual;
+    }
+    
+    function mult(){
+        virgula = 0
+        atual = parseFloat(visor.value);
+        if(resultadoSoma == 0){
+            resultadoSoma += atual;
+        }
+        else{
+            resultadoSoma *= atual;
+            naoRepetir = 1;
+        }
+        atual = 0;
+        operador = "*";
+        visor.value = atual;
+    }
+
+    function div(){
+        virgula = 0
+        atual = parseFloat(visor.value);
+        if(resultadoSoma == 0){
+            resultadoSoma += atual;
+        }
+        else{
+            resultadoSoma /= atual;
+            naoRepetir = 1;
+        }
+        atual = 0;
+        operador = "/";
+        visor.value = atual;
+    }
+    </script>
+</head>
+<body>
+    <input type="text" id="visor"></input>
+    <div id="botoes">
+	    <input type="button" value="7" id="botao7">
+        <input type="button" value="8" id="botao8">
+	    <input type="button" value="9" id="botao9">
+        <input type="button" value="+" id="botaoSoma"><br>
+        <input type="button" value="4" id="botao4">
+        <input type="button" value="5" id="botao5">
+        <input type="button" value="6" id="botao6">
+        <input type="button" value="-" id="botaoSub"><br>
+        <input type="button" value="1" id="botao1">
+        <input type="button" value="2" id="botao2">
+        <input type="button" value="3" id="botao3">
+        <input type="button" value="*" id="botaoMult"><br>
+        <input type="button" value="C" id="botaoC">
+        <input type="button" value="0" id="botao0">
+        <input type="button" value="." id="virgula">
+        <input type="button" value="/" id="botaoDiv"><br>
+        <input type="button" value="=" id="botaoIgual">
+        <br>
+    </div>
+</body>
+</html>

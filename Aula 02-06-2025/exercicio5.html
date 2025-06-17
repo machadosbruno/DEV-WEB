@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <style>
+        div{
+            width: 50vw;
+            height: 50vh;
+
+            margin: 25vh 25vw;
+        }
+        div#botoes{
+            width: fit-content;
+
+            margin: auto;
+        }
+        img{
+            display: block;
+            margin: auto;
+
+            height: 50vh;
+        }
+    </style>
+    <script>
+	window.onload = inicio;
+
+    let imagem;
+	let imgLigada = 'https://i.ibb.co/d4mZ5k0Y/Captura-de-Tela-2025-06-02-s-16-08-21.png';
+	let imgDesligada = 'https://i.ibb.co/hRHPxcnP/Captura-de-Tela-2025-06-02-s-16-08-01.png';
+
+	function inicio() {
+	    imagem = document.getElementById('imagem');
+	    imagem.src = imgDesligada;
+
+	    // ajustar botao liga:
+        document.getElementById('btnLigar').addEventListener('click', liga);
+	    // ajustar botao desliga:
+        document.getElementById('btnDesligar').addEventListener('click', desliga);
+	}
+	function liga() {
+	    // trocar imagem
+        imagem.src = imgLigada;
+	}
+	function desliga() {
+	    // trocar imagem
+        imagem.src = imgDesligada;
+	}
+    </script>
+</head>
+<body>
+    <div>
+        <img src="" alt="" id="imagem"><br>
+        
+        <div id="botoes">
+            <input type="button" value="Ligar" id="btnLigar">
+            <input type="button" value="Desligar" id="btnDesligar">
+        </div>
+    </div>
+</body>
+</html>
