@@ -25,7 +25,6 @@
         
         data += inputData.value.split('-')[0];
 
-        console.log(data);
         return data;
     }
 
@@ -40,7 +39,7 @@
                 valorUSD = parseFloat(resposta.value[0].cotacaoCompra);
                 
                 let campoSaida = document.getElementById('saida');
-                campoSaida.innerHTML = "Dólar hoje: R$ " + valorUSD;
+                campoSaida.innerHTML = "Dólar na data selecionada: R$ " + valorUSD;
             }
         };
 

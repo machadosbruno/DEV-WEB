@@ -39,6 +39,19 @@
     function apagar(){
         localStorage.removeItem('nome');
         localStorage.removeItem('email');
+        let saida = document.getElementById('saida');
+        
+        let nome = document.getElementById('saidaNome');
+        let email = document.getElementById('saidaEmail');
+
+        nome.remove();
+        email.remove();
+        
+        let apagado = document.createElement('p');
+        apagado.id = 'apagado';
+        apagado.textContent = "Valores apagados";
+
+        saida.appendChild(apagado);
     }
 </script>
 <body>
