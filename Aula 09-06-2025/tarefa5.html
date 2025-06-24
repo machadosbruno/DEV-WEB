@@ -105,8 +105,11 @@
                 let status = document.createElement('td');
                 status.id = `status${contadorTabela}`;
                 
+                let numeroId = event.srcElement.id;
+                numeroId = numeroId.charAt(numeroId.length - 1);
+
                 let select = document.createElement('select');
-                select.id = `situacao${contadorTabela}`;
+                select.id = `situacao${numeroId}`;
                 
                 let opInicio = document.createElement('option');
                 opInicio.value = 'inicio';
@@ -141,10 +144,33 @@
                 situa = document.getElementsByTagName('select');
 
                 for(let i = 0; i < situa.length; i++){
-                    
+                    situa[i].addEventListener('change', fundo);
                 }
             }
             contadorTabela++;
+        }
+
+        function fundo(){
+            let elementoFonte = event.srcElement.value;
+            if(elementoFonte == 'atribuida'){
+                let numeroId = event.srcElement.id;
+                numeroId = numeroId.charAt(numeroId.length - 1);
+                
+                document.getElementById(`lblc${numeroId}`).style.backgroundColor = 'lightgreen';
+            }
+            else if(elementoFonte == 'parada'){
+                let numeroId = event.srcElement.id;
+                numeroId = numeroId.charAt(numeroId.length - 1);
+                
+                document.getElementById(`lblc${numeroId}`).style.backgroundColor = 'yellow';
+            }
+            else if(elementoFonte == 'rejeitada'){
+                let numeroId = event.srcElement.id;
+                numeroId = numeroId.charAt(numeroId.length - 1);
+                
+                document.getElementById(`lblc${numeroId}`).style.backgroundColor = 'red';
+            }
+            
         }
 
 </script>
